@@ -57,9 +57,11 @@ public class Multiplets
             {
                 string name=MultipletList[krok].Label + "_" + MultipletList[j].Label+".txt";
                 string content = "";
-                foreach (int stark in MultipletList[krok].Components) content +=stark.ToString() +" ";
+                foreach (int stark in MultipletList[krok].Components) content +=stark.ToString() +",";
+                content = content.Remove(content.Length - 1);
                 content += "\r\n";
-                foreach (int stark in MultipletList[j].Components) content += stark.ToString() + " ";
+                foreach (int stark in MultipletList[j].Components) content += stark.ToString() + ",";
+                content = content.Remove(content.Length - 1);
                 string fname = GetSafeFilename(name);
                 Console.WriteLine(fname);
                 Console.WriteLine(content);
